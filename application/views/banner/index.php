@@ -9,7 +9,7 @@
 							<th>No</th>
 							<th>Nama Banner</th>
 							<th>Gambar</th>
-							<th>URL</th>
+							<th>Detail</th>
 							<th>#</th>
 						</tr>
 					</thead>

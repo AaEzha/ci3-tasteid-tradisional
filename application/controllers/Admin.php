@@ -8,11 +8,15 @@ class Admin extends CI_Controller {
 		parent::__construct();
 
 		if($this->session->akses != 'admin') return redirect('auth', 'refresh');
+		$this->load->model('Admin_model', 'madmin');
 	}
 
 	public function index()
 	{
-		echo "Hai";
+		$data['data'] = $this->madmin->all();
+		$data['title'] = 'Admin';
+		$data['view'] = 'admin/index';
+		$this->load->view('template/user/index', $data);
 	}
 
 }
