@@ -7,7 +7,7 @@ class Admin extends CI_Controller {
 	{
 		parent::__construct();
 
-		if($this->session->akses != 'admin') return redirect('auth', 'refresh');
+		if($this->session->akses != 'admin' and $this->session->akses != 'owner') return redirect('auth', 'refresh');
 		$this->load->model('Admin_model', 'madmin');
 	}
 
@@ -17,6 +17,127 @@ class Admin extends CI_Controller {
 		$data['title'] = 'Admin';
 		$data['view'] = 'admin/index';
 		$this->load->view('template/user/index', $data);
+	}
+
+	public function tambah()
+	{
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('daerah', 'Daerah', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['title'] = 'Tambah Admin';
+			$data['view'] = 'admin/form';
+			$this->load->model('Daerah_model', 'mdaerah');
+			$data['provs'] = $this->mdaerah->provinsi();
+			$this->load->view('template/user/index', $data);
+		} else {
+			$config['upload_path']          = './assets/uploads/users/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+			$config['encrypt_name']         = true;
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('gambar')) {
+				$this->session->set_flashdata('msg', 'Terjadi kesalahan pada pemilihan gambar');
+				return redirect('admin/tambah', 'refresh');
+			} else {
+				$data = [
+					'nama_user' => $this->input->post('nama'),
+					'email_user' => $this->input->post('email'),
+					'password_user' => md5($this->input->post('password')),
+					'provinsi' => $this->input->post('daerah'),
+					'img_user' => "users/".$this->upload->data("file_name"),
+					'hak_akses' => 'admin'
+				];
+
+				$this->madmin->save($data);
+
+				$this->session->set_flashdata('msg', 'Data berhasil disimpan');
+				return redirect('admin');
+			}
+		}
+	}
+
+	public function edit($id = null)
+	{
+		if(is_null($id)) return redirect('admin');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('daerah', 'Daerah', 'required');
+
+		if(is_null($this->input->post('id'))) $this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['data'] = $this->madmin->get($id);
+			if($data['data'] == null) return redirect('admin');
+			$this->load->model('Daerah_model', 'mdaerah');
+			$data['provs'] = $this->mdaerah->provinsi();
+			$data['title'] = 'Edit Admin';
+			$data['view'] = 'admin/form';
+			$this->load->view('template/user/index', $data);
+		} else {
+			$data = $this->madmin->get($id);
+
+			if(!empty($_FILES['gambar']['name']))
+			{
+				$config['upload_path']          = './assets/uploads/users/';
+				$config['allowed_types']        = 'gif|jpg|png|jpeg';
+				$config['encrypt_name']         = true;
+	
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('gambar')) {
+					$this->session->set_flashdata('msg', 'Terjadi kesalahan pada pemilihan gambar');
+					return redirect('banner/edit', 'refresh');
+				} else {
+					unlink("assets/uploads/". $data->gambar);
+					$data = [
+						'nama_user' => $this->input->post('nama'),
+						'provinsi' => $this->input->post('daerah'),
+						'img_user' => "users/".$this->upload->data("file_name"),
+					];
+				}
+			}else{
+				$data = [
+					'nama_user' => $this->input->post('nama'),
+					'provinsi' => $this->input->post('daerah'),
+				];
+			}
+
+			$this->madmin->update($data, $id);
+			
+			if(!is_null($this->input->post('password'))){
+				$data = [
+					'password_user' => md5($this->input->post('password'))
+				];
+				$this->madmin->update($data, $id);
+			}
+
+
+			$this->session->set_flashdata('msg', 'Data berhasil disimpan');
+			return redirect('admin');
+		}
+	}
+
+	public function hapus($id = null)
+	{
+		if(is_null($id)) return redirect('admin');
+
+		$data = $this->madmin->get($id);
+		unlink("assets/uploads/". $data->gambar);
+		$hapus = $this->madmin->delete($id);
+		if($hapus){
+			$this->session->set_flashdata('msg', 'Data berhasil dihapus');
+		}else{
+			$this->session->set_flashdata('msg', 'Data gagal dihapus');
+		}
+		return redirect('admin');
 	}
 
 }

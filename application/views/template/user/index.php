@@ -99,7 +99,7 @@
 						<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 						<?php
-						if ($this->session->akses == "admin") $this->load->view('menu/admin');
+						if ($this->session->akses == "admin" or $this->session->akses == 'owner') $this->load->view('menu/admin');
 						else $this->load->view('menu/user');
 						?>
 					</ul>

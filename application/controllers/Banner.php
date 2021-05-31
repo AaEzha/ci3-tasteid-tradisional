@@ -8,7 +8,7 @@ class Banner extends CI_Controller
 	{
 		parent::__construct();
 
-		if ($this->session->akses != "admin") return redirect('dashboard', 'refresh');
+		if ($this->session->akses != "admin" and $this->session->akses != 'owner') return redirect('dashboard', 'refresh');
 		$this->load->model('Banner_model', 'mbanner');
 	}
 
@@ -29,7 +29,7 @@ class Banner extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = 'Tambah Banner';
-			$data['view'] = 'banner/tambah';
+			$data['view'] = 'banner/form';
 			$this->load->view('template/user/index', $data);
 		} else {
 			$config['upload_path']          = './assets/uploads/images/';
@@ -40,7 +40,7 @@ class Banner extends CI_Controller
 
 			if (!$this->upload->do_upload('gambar')) {
 				$this->session->set_flashdata('msg', 'Terjadi kesalahan pada pemilihan gambar');
-				return redirect('banner/tambah', 'refresh');
+				return redirect('banner/form', 'refresh');
 			} else {
 				$data = [
 					'nama' => $this->input->post('nama'),
@@ -67,7 +67,7 @@ class Banner extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$data['data'] = $this->mbanner->get($id);
 			$data['title'] = 'Edit Banner';
-			$data['view'] = 'banner/tambah';
+			$data['view'] = 'banner/form';
 			$this->load->view('template/user/index', $data);
 		} else {
 			$data = $this->mbanner->get($id);
