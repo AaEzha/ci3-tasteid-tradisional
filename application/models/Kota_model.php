@@ -1,15 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Daerah_model extends CI_Model {
+class Kota_model extends CI_Model {
 	private $table = "daerah";
 
-	public function provinsi()
+	public function all($provinsi)
 	{
-		$this->db->select('provinsi, id');
-		$this->db->group_by("provinsi");
+		$this->db->where('provinsi', $provinsi);
 		$query = $this->db->get($this->table);
-
 		return $query->result();
 	}
 
@@ -18,9 +16,9 @@ class Daerah_model extends CI_Model {
 		return $this->db->insert($this->table, $data);
 	}
 
-	public function update($data, $awal)
+	public function update($data, $id)
 	{
-		$this->db->where('provinsi', $awal);
+		$this->db->where('id', $id);
 		return $this->db->update($this->table, $data);
 	}
 
@@ -32,6 +30,6 @@ class Daerah_model extends CI_Model {
 
 	public function delete($id)
 	{
-		return $this->db->delete($this->table, array('provinsi' => $id));
+		return $this->db->delete($this->table, array('id' => $id));
 	}
 }
