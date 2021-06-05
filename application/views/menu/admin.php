@@ -42,3 +42,11 @@
 		</p>
 	</a>
 </li>
+<li class="nav-item">
+	<a href="<?=base_url('artikel');?>" class="nav-link">
+		<i class="nav-icon fa fa-list"></i>
+		<p>
+			Artikel
+		</p>
+	</a>
+</li>
