@@ -1,0 +1,232 @@
+main {
+    color: #4a4a4a;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.profile>img{
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+}
+.search-tit{
+    margin-top: 75px;
+    width: 680px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.search-tit>h2>span{
+    font-size: 21px;
+    margin-left: 5px;
+}
+.main-con{
+    margin-top: 30px;
+    width: 680px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.nav-con{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-con>.tit{
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tit>.choose{
+    border-bottom: 2px solid #c42f2f;
+}
+.tit>a{
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #4a4a4a;
+    font-size: 18px;
+}
+.tit>a:hover{
+    transition: 0.3s;
+    border-bottom: 2px solid #c42f2f;
+    text-decoration: none;
+    color: #4a4a4a;
+}
+/* Search bar */
+.search-tagged{
+    margin-top:30px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #c0c0c0;
+}
+.search-bar{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: center;
+}
+.search-bar>input{
+    width: 250px;
+    border-radius: 40px;
+    outline: none;
+    border: 2px solid #4a4a4a;
+    transition: 0.4s;
+}
+.search-bar>input::placeholder{
+    transition: 0.4s;
+    padding: 10px;
+    margin-left: 10px;
+}
+.search-bar>input:focus{
+    padding-left: 20px;
+}
+.search-bar>input:focus::placeholder{
+   
+    color: transparent;
+}
+.search-bar>button{
+    color: #4a4a4a;
+    margin-left: 10px;
+    border-radius: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    border: 2px solid #4a4a4a;
+}
+.search-bar>button:focus{
+   outline: transparent;
+}
+/* conten tagged */
+.resep-tagged{
+    color: #4a4a4a;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.resep-list{
+    padding-bottom: 20px;
+    border-bottom: 2px solid #c0c0c0;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.resep-list>img{
+    width: 100px;
+    height: 100px;
+}
+.resep-list>.resep-inf{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+.resep-inf>.users{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.users>.tit>img{
+    width: 24px;
+    height: 24px;
+}
+.users>.tit{
+    padding-left: unset;
+    margin-bottom: 5px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tit>img{
+    margin-right: 5px;
+}
+.users>.ico{
+    padding-left: unset;
+    margin-bottom: 5px;
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.pagee{
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.pagee>a{
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #4a4a4a;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 3px;
+}
+.pagee>a:hover{
+    color: #4a4a4a;
+    text-decoration: none;
+}
+.selects{
+    width: 680px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+option:checked{
+    color: white;
+    background-color: #c42f2f;
+}
+option:hover {
+    background-color: #c42f2f;
+  }
+
+@media screen and (max-width: 800px){
+    .main-con{
+        width: 100%;
+    }
+    .search-tit{
+        width: 100%;
+    }
+    .selects{
+        width: 100%;
+    }
+}

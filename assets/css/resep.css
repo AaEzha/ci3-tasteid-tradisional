@@ -1,0 +1,246 @@
+/* .navbar{
+    display: none;
+} */
+.main-1 {
+    background-color: #f2f2f2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.profile>img{
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+}
+.container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+}
+.navbar-conten {
+    border-bottom: 2px solid #e1dfdb;
+    background-color: white;
+    position: sticky;
+    top: 72px;
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-conten>a {
+    color: #cf1818;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.resep-tagline {
+    border-bottom: 2px solid #e1dfdb;
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.resep-tagline>img {
+    width: 680px;
+}
+
+.akun {
+    color: #4a4a4a;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.akun>.bio {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.frame>img {
+    width: 100px;
+    height: 50px;
+}
+
+.bio>.frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 50px;
+    border-radius: 30px;
+}
+
+.bio>.username {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.username>span {
+    font-size: 16px;
+}
+
+.location>span {
+    font-size: 14px;
+}
+
+.location>i {
+    color: #cf1818;
+    font-size: 16px;
+}
+
+.username>.location {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* lihat selengkapnya */
+
+.display {
+    display: none;
+}
+
+.description {
+    font-size: 18px;
+}
+
+.more {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.more>.morebtn {
+    color: #cf1818;
+}
+
+.hastag {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.display1 {
+    display: flex;
+}
+
+.resep-item {
+    border-bottom: 2px solid #e1dfdb;
+    padding: 10px;
+    width: 100%;
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.resep-item>ul>li {
+    border-bottom: 1px dashed #e1dfdb;
+    font-size: 18px;
+    list-style: none;
+}
+
+.resep-item>ul {
+    padding: unset;
+    margin: unset;
+}
+
+.step {
+    color: #4a4a4a;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.step>h2{
+    margin-top: 30px;
+}
+.step>.step-list{
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.step-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #4a4a4a;
+}
+.number>span{
+    font-size: 16px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+.tit{
+    font-size: 18px;
+    padding-left: 5px;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.step-img{
+    display: flex;
+    flex-direction: row;
+    margin-left: 29px;
+    flex-wrap: wrap;
+
+}
+.step-img>img{
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    width: 160px;
+    height: 128px;
+}
+
+@media screen and (max-width: 700px){
+    .container-main{
+        width: 100%;
+    }
+}

@@ -1,0 +1,219 @@
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.profile>img{
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+}
+.main-1 {
+    background-color: #f2f2f2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.container-main{
+    padding: 10px;
+    width: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.tit{
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.tit>h4{
+    margin-top: 10px;
+}
+.win{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.win-con{
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 3px 5px #8888881a;
+}
+.con-profile{
+    width: 100% ;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start ;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px;
+}
+.name>p{
+    color: #cf1818;
+    margin-bottom: 1px;
+}
+.name>span{
+    font-size: 10px;
+}
+.poin{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.poin-det{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px;
+}
+.poin-det>p{
+    font-size: 20px;
+    color: #cf1818;
+    margin-bottom: 1px;
+}
+.poin-det>span{
+   font-size: 10px;
+}
+.icon{
+    display: flex;
+    align-items: center;
+}
+.icon>i{
+    font-size: 40px;
+}
+.con-profile>img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.tables{
+    display: flex;
+    width: 100%;
+}
+table{
+    margin-bottom: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+tr:nth-child(even){background-color: #ffffff;}
+th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e2e2e2;
+    color: rgb(124, 124, 124);
+}
+th{
+    padding: 8px;
+}
+td{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.posittiontable{
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.usertable{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.usertable>img{
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+}
+.userdet{
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.userdet>p{
+    color: #cf1818;
+    margin: unset;
+}
+.userdet>span{
+    font-size: 10px;
+}
+.reward{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.point{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: #cf1818;
+}
+@media screen and (max-width: 1070px){
+    .container-main{
+        width: 100%;
+    }
+}
+
+/* Jika ingin menghilangkan #card pemenang bulanan aktifkan komentar dibawah ini!!*/
+
+/* @media screen and (max-width:950px) {
+    .win-con{
+        display: none;
+    }
+} */
+
+
+@media screen and (max-width:950px) {
+    .win{
+       flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .win{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .win-con{
+        width: 70%;
+    }
+}
+@media screen and (max-width:600px) {
+    .win-con{
+        width: 100%;
+    }
+}

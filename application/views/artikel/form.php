@@ -7,15 +7,16 @@
 					<input type="hidden" name="id" value="<?php echo $data->id ?? null; ?>">
 					
 					<div class="form-group">
-						<label for="nama">Nama Banner</label>
-						<?php echo form_error('nama'); ?>
-						<input type="text" class="form-control" name="nama" id="nama" value="<?php echo $data->nama ?? set_value('nama'); ?>" placeholder="Nama Banner">
+						<label for="judul">Judul Artikel</label>
+						<?php echo form_error('judul'); ?>
+						<input type="text" class="form-control" name="judul" id="judul" value="<?php echo $data->judul ?? set_value('judul'); ?>" placeholder="Judul Artikel">
 					</div>
 
 					<div class="form-group">
-						<label for="url">URL</label>
-						<?php echo form_error('url'); ?>
-						<input type="url" class="form-control" name="url" id="url" value="<?php echo $data->url ?? set_value('url'); ?>" placeholder="URL">
+						<label for="isi">Konten Artikel</label>
+						<?php echo form_error('isi'); ?>
+						<textarea id="summernote" name="isi" placeholder="Konten Artikel"><?php echo $data->isi ?? set_value('isi'); ?></textarea>
+						<!-- <input type="isi" class="form-control" name="isi" id="isi" value="<?php echo $data->isi ?? set_value('isi'); ?>" placeholder="Konten Artikel"> -->
 					</div>
 
 					<div class="form-group">
@@ -29,7 +30,7 @@
 					</div>
 
 					<button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">Simpan</button>
-					<a class="btn btn-dark" href="<?=base_url('banner');?>" role="button" onclick="return confirm('Are you sure?')">Batal</a>
+					<a class="btn btn-dark" href="<?=base_url('artikel');?>" role="button" onclick="return confirm('Are you sure?')">Batal</a>
 				</form>
 			</div>
 		</div>
